@@ -6,7 +6,11 @@ import Home from './pages/Home'
 import Footer from './components/Footer'  
 import Allmenu from './pages/Allmenu'
 import { Link } from 'react-router-dom'
-import AboutUs from './pages/AboutUs'
+import AboutUs from './pages/AboutUs';
+import Contactus from './pages/Contactus';
+import Login from './pages/Login';
+import Signup from './pages/Signup';
+
 function App() {
   
   return (
@@ -17,6 +21,9 @@ function App() {
       <Route path="/" element={<Home/>} />
       <Route path="/menu" element={<Allmenu/>} />
       <Route path="/about" element={<AboutUs/>} />
+      <Route path="/contact" element={<Contactus/>} />
+      <Route path="/login" element={<Login/>} />
+      <Route path="/signup" element={<Signup/>} />
     </Routes>
     <Footer/>
     </BrowserRouter>

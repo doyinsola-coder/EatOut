@@ -181,6 +181,7 @@
     transform: translateY(-9px) rotate(-45deg);
   }
 }
+
 /* Footer.css */
 .footer {
   background-color: #1a1a1a;
@@ -1962,3 +1963,464 @@ section {
 .value-box p {
   font-size: 1rem;
 }
+/* CONTACT PAGE */
+.contact-page {
+  padding: 80px 20px;
+  background: linear-gradient(to right, #FF6B6B, #FF4500);
+  color: white;
+  text-align: center;
+  animation: fadeIn 1s ease-in-out;
+}
+
+/* Section Title */
+.section-title {
+  font-size: 2.5rem;
+  margin-bottom: 10px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+.section-subtitle {
+  font-size: 1.2rem;
+  margin-bottom: 30px;
+}
+
+/* CONTACT CONTENT */
+.contact-content {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 40px;
+  max-width: 1100px;
+  margin: auto;
+}
+
+/* FORM */
+.contact-form {
+  flex: 1;
+  min-width: 350px;
+  background: white;
+  padding: 30px;
+  border-radius: 10px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+  animation: slideUp 1s ease-in-out;
+}
+
+.input-group {
+  position: relative;
+  margin-bottom: 25px;
+}
+
+.input-group input,
+.input-group textarea {
+  width: 100%;
+  padding: 12px;
+  border: none;
+  border-bottom: 2px solid grey;
+  background: transparent;
+  outline: none;
+  font-size: 1rem;
+  color: black;
+  transition: 0.3s;
+}
+
+.input-group label {
+  position: absolute;
+  left: 0;
+  top: 12px;
+  font-size: 1rem;
+  color: grey;
+  transition: 0.3s ease;
+}
+
+.input-group input:focus + label,
+.input-group textarea:focus + label,
+.input-group input:valid + label,
+.input-group textarea:valid + label {
+  top: -15px;
+  font-size: 0.8rem;
+  color: #FF4500;
+}
+
+.input-group textarea {
+  height: 100px;
+  resize: none;
+}
+
+/* SUBMIT BUTTON */
+.btn-submit {
+  background: #FF4500;
+  color: white;
+  padding: 12px 20px;
+  border: none;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: 0.3s ease;
+  border-radius: 25px;
+}
+
+.btn-submit:hover {
+  background: #ff6b6b;
+  transform: scale(1.05);
+}
+
+/* CONTACT INFO */
+.contact-info {
+  flex: 1;
+  min-width: 350px;
+  text-align: left;
+  animation: fadeIn 1.5s ease-in-out;
+}
+
+.info-box {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.info-icon {
+  font-size: 1.5rem;
+  margin-right: 15px;
+  color: white;
+}
+
+/* ANIMATIONS */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* RESPONSIVE DESIGN */
+@media screen and (max-width: 768px) {
+  .contact-content {
+    flex-direction: column;
+  }
+  
+  .contact-form, .contact-info {
+    text-align: center;
+  }
+  
+  .info-box {
+    justify-content: center;
+  }
+}
+/* SIGNUP PAGE */
+.signup-page {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background: linear-gradient(to right, #FF6B6B, #FF4500);
+  color: white;
+  animation: fadeIn 1s ease-in-out;
+}
+
+.signup-container {
+  background: white;
+  padding: 40px;
+  border-radius: 10px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+  text-align: center;
+  max-width: 400px;
+  width: 100%;
+  animation: slideUp 1s ease-in-out;
+}
+
+.signup-title {
+  font-size: 2rem;
+  color: #FF4500;
+  margin-bottom: 10px;
+}
+
+.signup-subtitle {
+  font-size: 1rem;
+  color: grey;
+  margin-bottom: 20px;
+}
+
+/* FORM */
+.signup-form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.input-group {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.input-group input {
+  width: 100%;
+  padding: 12px 40px;
+  border: 2px solid grey;
+  border-radius: 5px;
+  outline: none;
+  font-size: 1rem;
+  color: black;
+  transition: 0.3s;
+}
+
+.input-group input:focus {
+  border-color: #FF4500;
+}
+
+.input-group label {
+  position: absolute;
+  left: 40px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 1rem;
+  color: grey;
+  transition: 0.3s ease;
+}
+
+.input-group input:focus + label,
+.input-group input:valid + label {
+  top: 5px;
+  font-size: 0.8rem;
+  color: #FF4500;
+}
+
+.input-icon {
+  position: absolute;
+  left: 10px;
+  font-size: 1.2rem;
+  color: grey;
+}
+
+/* BUTTON */
+.btn-signup {
+  background: #FF4500;
+  color: white;
+  padding: 12px;
+  border: none;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: 0.3s ease;
+  border-radius: 25px;
+}
+
+.btn-signup:hover {
+  background: #ff6b6b;
+  transform: scale(1.05);
+}
+
+/* FOOTER */
+.signup-footer {
+  margin-top: 20px;
+  font-size: 0.9rem;
+  color: grey;
+}
+
+.signup-footer a {
+  color: #FF4500;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.signup-footer a:hover {
+  text-decoration: underline;
+}
+
+/* ANIMATIONS */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* RESPONSIVE DESIGN */
+@media screen and (max-width: 480px) {
+  .signup-container {
+    width: 90%;
+    padding: 30px;
+  }
+}
+/* LOGIN PAGE */
+/* LOGIN PAGE */
+.login-page {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background: linear-gradient(to right, #FF6B6B, #FF4500);
+  color: white;
+  animation: fadeIn 1s ease-in-out;
+}
+
+.login-container {
+  background: white;
+  padding: 40px;
+  border-radius: 10px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+  text-align: center;
+  max-width: 400px;
+  width: 100%;
+  animation: slideUp 1s ease-in-out;
+}
+
+.login-title {
+  font-size: 2rem;
+  color: #FF4500;
+  margin-bottom: 10px;
+}
+
+.login-subtitle {
+  font-size: 1rem;
+  color: grey;
+  margin-bottom: 20px;
+}
+
+/* FORM */
+.login-form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.input-group {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.input-group input {
+  width: 100%;
+  padding: 12px 40px;
+  border: 2px solid grey;
+  border-radius: 5px;
+  outline: none;
+  font-size: 1rem;
+  color: black;
+  transition: 0.3s;
+}
+
+.input-group input:focus {
+  border-color: #FF4500;
+}
+
+.input-group label {
+  position: absolute;
+  left: 40px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 1rem;
+  color: grey;
+  transition: 0.3s ease;
+}
+
+.input-group input:focus + label,
+.input-group input:valid + label {
+  top: 5px;
+  font-size: 0.8rem;
+  color: #FF4500;
+}
+
+.input-icon {
+  position: absolute;
+  left: 10px;
+  font-size: 1.2rem;
+  color: grey;
+}
+
+/* BUTTON */
+.btn-login {
+  background: #FF4500;
+  color: white;
+  padding: 12px;
+  border: none;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: 0.3s ease;
+  border-radius: 25px;
+}
+
+.btn-login:hover {
+  background: #ff6b6b;
+  transform: scale(1.05);
+}
+
+/* FOOTER */
+.login-footer {
+  margin-top: 20px;
+  font-size: 0.9rem;
+  color: grey;
+}
+
+.login-footer a {
+  color: #FF4500;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.login-footer a:hover {
+  text-decoration: underline;
+}
+
+/* ANIMATIONS */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* RESPONSIVE DESIGN */
+@media screen and (max-width: 480px) {
+  .login-container {
+    width: 90%;
+    padding: 30px;
+  }
+}
+
+

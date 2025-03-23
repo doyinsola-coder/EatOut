@@ -27,7 +27,7 @@ const Navbar = () => {
           <li className="nav-item"><Link to="/" className="nav-link" onClick={() => setIsMenuOpen(false)}>Home</Link></li>
           <li className="nav-item"><Link to="/menu" className="nav-link" onClick={() => setIsMenuOpen(false)}>Menu</Link></li>
           <li className="nav-item"><Link to="/about" className="nav-link" onClick={() => setIsMenuOpen(false)}>About Us</Link></li>
-          <li className="nav-item"><Link to="#contact" className="nav-link" onClick={() => setIsMenuOpen(false)}>Contact</Link></li>
+          <li className="nav-item"><Link to="/contact" className="nav-link" onClick={() => setIsMenuOpen(false)}>Contact</Link></li>
         </ul>
 
         {/* Order Now Button */}
