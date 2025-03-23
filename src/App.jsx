@@ -10,11 +10,13 @@ import AboutUs from './pages/AboutUs';
 import Contactus from './pages/Contactus';
 import Login from './pages/Login';
 import Signup from './pages/Signup';
-
+import OrderNow from './pages/OrderNow'
+import CheckOut from './pages/CheckOut'
 function App() {
   
   return (
     <>
+    
     <BrowserRouter>
     <Navbar/>
     <Routes>
@@ -24,9 +26,12 @@ function App() {
       <Route path="/contact" element={<Contactus/>} />
       <Route path="/login" element={<Login/>} />
       <Route path="/signup" element={<Signup/>} />
+      <Route path='/order' element={<OrderNow/>} />
+      <Route path='/checkout' element={<CheckOut/>} /> 
     </Routes>
     <Footer/>
     </BrowserRouter>
+    
     </>
   )
 }

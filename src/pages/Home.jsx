@@ -11,8 +11,12 @@ const LandingPage = () => {
           <h1>Delicious Food for Every Mood</h1>
           <p>Experience the finest flavors delivered straight to your doorstep</p>
           <div className="hero-buttons">
-            <button className="btn-primary">Order Now</button>
+           <Link to="/order">
+           <button className="btn-primary">Order Now</button>
+           </Link>
+            <Link to="/menu">
             <button className="btn-secondary">View Menu</button>
+            </Link>
           </div>
         </div>
       </section>
