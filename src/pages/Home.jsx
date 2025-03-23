@@ -102,23 +102,7 @@ const LandingPage = () => {
         </div>
       </section>
 
-      {/* About Us Section */}
-      <section className="about-us" id="about">
-        <div className="section-heading">
-          <h2>Our Story</h2>
-          <p>How TastyBites came to be</p>
-        </div>
-        
-        <div className="about-container">
-          <img src="/images/about-us.jpg" alt="About Us" className="about-image" />
-          <div className="about-content">
-            <h3>Passion for Good Food</h3>
-            <p>Founded in 2020, TastyBites began with a simple mission: to bring delicious, quality food to food lovers everywhere.</p>
-            <p>We believe that good food brings people together. That's why we source only the freshest ingredients and prepare each dish with care.</p>
-            <button className="btn-secondary">Learn More</button>
-          </div>
-        </div>
-      </section>
+     
 
       {/* Testimonials Section */}
       <section className="testimonials">
@@ -129,19 +113,19 @@ const LandingPage = () => {
         
         <div className="testimonials-container">
           <div className="testimonial-card">
-            <img src="/images/customer-1.jpg" alt="John Doe" className="testimonial-avatar" />
+            <img src="/man.jpg" alt="John Doe" className="testimonial-avatar" />
             <div className="testimonial-text">
               <p>"The food is always fresh and delicious. The delivery is prompt, and the staff is friendly."</p>
-              <h4>John Doe</h4>
+              <h4>Bhigdaddhie</h4>
               <span>Regular Customer</span>
             </div>
           </div>
           
           <div className="testimonial-card">
-            <img src="/images/customer-2.jpg" alt="Jane Smith" className="testimonial-avatar" />
+            <img src="/woman.jpg" alt="Jane Smith" className="testimonial-avatar" />
             <div className="testimonial-text">
               <p>"I love their daily specials! The weekend family combo is perfect for our movie nights."</p>
-              <h4>Jane Smith</h4>
+              <h4>Fatimah Hamzah</h4>
               <span>Food Enthusiast</span>
             </div>
           </div>
@@ -156,7 +140,7 @@ const LandingPage = () => {
         </div>
         
         <div className="contact-container">
-          <img src="/images/contact.jpg" alt="Contact Us" className="contact-image" />
+          <img src="/contact.jpg" alt="Contact Us" className="contact-image" />
         </div>
       </section>
 
