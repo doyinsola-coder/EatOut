@@ -6,7 +6,7 @@ const LandingPage = () => {
       
       {/* Hero Section */}
       <section className="hero" id="home">
-        <img src="" alt="Delicious Food" className="hero-image" />
+        <img src="/hero.jpeg" alt="Delicious Food" className="hero-image" />
         <div className="hero-content">
           <h1>Delicious Food for Every Mood</h1>
           <p>Experience the finest flavors delivered straight to your doorstep</p>
