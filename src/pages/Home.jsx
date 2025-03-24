@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from "react";
-import { ArrowRight, ChevronDown, Star, Menu, X, Clock, MapPin, Phone, Instagram, Facebook, Twitter } from "lucide-react";
+import { ArrowRight, ChevronDown, Star, Menu, X, Clock, MapPin, Phone, Instagram, Facebook, Twitter , ArrowDownIcon} from "lucide-react";
 import { Link } from "react-router";
 
 // Main App Component
@@ -123,7 +123,7 @@ const Hero = () => {
           <button 
             className="border border-white text-white hover:bg-white/10 transition-all duration-300 px-6 py-3 text-lg rounded-md"
           >
-            Make Reservation
+             <ArrowDownIcon className="ml-2 h-5 w-5" />
           </button>
         </div>
       </div>
