@@ -1,170 +1,165 @@
-import React from 'react';
-import { Link } from 'react-router';
-const LandingPage = () => {
+import React, { useEffect } from "react";
+import { ArrowRight, ChevronDown, Star } from "lucide-react";
+import AOS from "aos";
+import "aos/dist/aos.css";
+import { Link } from "react-router";
+const Hero = () => {
+  useEffect(() => {
+    AOS.init({
+      duration: 1000,
+      once: false,
+      mirror: true,
+    });
+  }, []);
+
   return (
-    <div className="landing-page">
+    <section className="relative h-screen overflow-hidden">
+      {/* Background Image with parallax effect */}
+      <div className="absolute inset-0 bg-black">
+        <div 
+          className="absolute inset-0 bg-[url('/hero.jpeg')] bg-cover bg-center"
+          style={{ 
+            filter: "brightness(0.4)",
+            transform: "scale(1.1)",
+          }}
+          data-aos="zoom-out"
+          data-aos-duration="2000"
+        />
+      </div>
       
-      {/* Hero Section */}
-      <section className="hero" id="home">
-        <img src="/hero.jpeg" alt="Delicious Food" className="hero-image" />
-        <div className="hero-content">
-          <h1>Delicious Food for Every Mood</h1>
-          <p>Experience the finest flavors delivered straight to your doorstep</p>
-          <div className="hero-buttons">
-           <Link to="/order">
-           <button className="btn-primary">Order Now</button>
-           </Link>
-            <Link to="/menu">
-            <button className="btn-secondary">View Menu</button>
-            </Link>
-          </div>
+      {/* Floating decorative elements */}
+      <div className="absolute inset-0 overflow-hidden pointer-events-none">
+        <div 
+          className="absolute top-24 left-12 text-amber-300/30"
+          data-aos="fade-right"
+          data-aos-delay="800"
+        >
+          <Star className="w-16 h-16" />
         </div>
-      </section>
+        <div 
+          className="absolute bottom-32 right-16 text-amber-300/30"
+          data-aos="fade-left"
+          data-aos-delay="1000"
+        >
+          <Star className="w-24 h-24" />
+        </div>
+      </div>
       
-      {/* Features Section */}
-      <section className="features">
-        <div className="feature-container">
-          <div className="feature">
-            <img src="/qf1.avif" alt="Quality Food" className="delivery-image" />
-            <h3>Quality Food</h3>
-            <p>Made with premium ingredients and prepared by expert chefs</p>
-          </div>
-          <div className="feature">
-            <img src="/dimg1.avif" alt="Fast Delivery" className="delivery-image" />
-            <h3>Fast Delivery</h3>
-            <p>Quick delivery to your doorstep in less than 30 minutes</p>
-          </div>
-          <div className="feature">
-            <img src="/dp1.avif" alt="Best Prices" className="delivery-image" />
-            <h3>Best Prices</h3>
-            <p>Affordable meals without compromising on quality or taste</p>
-          </div>
-        </div>
-      </section>
-      
-      {/* Popular Dishes Section */}
-      <section className="popular-dishes" id="menu">
-        <div className="section-heading">
-          <h2>Our Popular Dishes</h2>
-          <p>Discover our customers' favorites</p>
-        </div>
+      {/* Content */}
+      <div className="relative z-10 flex flex-col items-center justify-center h-full px-6 md:px-12 text-center">
+        <span 
+          className="inline-block text-white/80 text-sm md:text-base tracking-wider uppercase mb-3"
+          data-aos="fade-down"
+          data-aos-delay="200"
+        >
+          Welcome to Culinary
+        </span>
         
-        <div className="dishes-container">
-          <div className="dish-card">
-            <img src="/scp1.avif" alt="Spicy Chicken Pasta" className="dish-image" />
-            <div className="dish-info">
-              <h3>Spicy Chicken Pasta</h3>
-              <p>Tender chicken with creamy pasta and a hint of spice</p>
-              <div className="dish-meta">
-                <span className="dish-price">$12.99</span>
-                <button className="add-to-cart">Add to Cart</button>
-              </div>
+        <h1 
+          className="text-4xl md:text-6xl lg:text-7xl font-bold text-white mb-6 tracking-tight max-w-4xl leading-tight"
+          data-aos="fade-up"
+          data-aos-delay="400"
+        >
+          Experience the Art of <br className="hidden md:block" />
+          <span className="text-transparent bg-clip-text bg-gradient-to-r from-amber-200 to-amber-300">
+            Fine Dining
+          </span>
+        </h1>
+        
+        <p 
+          className="text-white/80 text-lg md:text-xl max-w-xl mb-8"
+          data-aos="fade-up"
+          data-aos-delay="600"
+        >
+          Indulge in an exquisite culinary journey crafted with passion, precision, and the finest ingredients.
+        </p>
+        
+        {/* Awards/recognition indicators */}
+        <div 
+          className="flex items-center justify-center space-x-8 mb-8"
+          data-aos="fade-up"
+          data-aos-delay="700"
+        >
+          <div className="flex flex-col items-center">
+            <div className="text-amber-300 flex">
+              <Star className="w-4 h-4 fill-current" />
+              <Star className="w-4 h-4 fill-current" />
+              <Star className="w-4 h-4 fill-current" />
             </div>
+            <span className="text-white/70 text-sm mt-1">Michelin Rated</span>
           </div>
-          
-          <div className="dish-card">
-            <img src="/burger.jpg" alt="Classic Beef Burger" className="dish-image" />
-            <div className="dish-info">
-              <h3>Classic Beef Burger</h3>
-              <p>Juicy beef patty with fresh veggies and special sauce</p>
-              <div className="dish-meta">
-                <span className="dish-price">$10.99</span>
-                <button className="add-to-cart">Add to Cart</button>
-              </div>
-            </div>
+          <div className="h-8 w-px bg-white/20"></div>
+          <div className="text-white/70 text-sm">
+            <span className="text-amber-300 text-lg font-semibold">4.9</span> Customer Rating
           </div>
-          
-          <div className="dish-card">
-            <img src="/pizza.jpg" alt="Margherita Pizza" className="dish-image" />
-            <div className="dish-info">
-              <h3>Margherita Pizza</h3>
-              <p>Traditional pizza with tomato, mozzarella, and fresh basil</p>
-              <div className="dish-meta">
-                <span className="dish-price">$14.99</span>
-                <button className="add-to-cart">Add to Cart</button>
-              </div>
-            </div>
-          </div>
-          
-          <div className="dish-card">
-            <img src="/salad.jpg" alt="Garden Fresh Salad" className="dish-image" />
-            <div className="dish-info">
-              <h3>Garden Fresh Salad</h3>
-              <p>Crisp vegetables with our homemade vinaigrette dressing</p>
-              <div className="dish-meta">
-                <span className="dish-price">$8.99</span>
-                <button className="add-to-cart">Add to Cart</button>
-              </div>
-            </div>
+          <div className="h-8 w-px bg-white/20"></div>
+          <div className="text-white/70 text-sm">
+            <span className="text-amber-300 text-lg font-semibold">12</span> Years of Excellence
           </div>
         </div>
         
-        <div className="view-all">
-          <Link to="/menu" >
-          <button className="btn-secondary">View All Menu</button>
+        <div 
+          className="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4"
+          data-aos="fade-up" 
+          data-aos-delay="800"
+        >
+          <Link to="/menu">
+          <button 
+            className="bg-white text-black hover:bg-white/90 transition-all duration-300 px-6 py-3 text-lg shadow-lg flex items-center rounded-md group"
+          >
+            Explore Menu
+            <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
+          </button>
           </Link>
-        </div>
-      </section>
-
-     
-
-      {/* Testimonials Section */}
-      <section className="testimonials">
-        <div className="section-heading">
-          <h2>What Our Customers Say</h2>
-          <p>Hear from our satisfied customers</p>
-        </div>
-        
-        <div className="testimonials-container">
-          <div className="testimonial-card">
-            <img src="/man.jpg" alt="John Doe" className="testimonial-avatar" />
-            <div className="testimonial-text">
-              <p>"The food is always fresh and delicious. The delivery is prompt, and the staff is friendly."</p>
-              <h4>Bhigdaddhie</h4>
-              <span>Regular Customer</span>
-            </div>
-          </div>
           
-          <div className="testimonial-card">
-            <img src="/woman.jpg" alt="Jane Smith" className="testimonial-avatar" />
-            <div className="testimonial-text">
-              <p>"I love their daily specials! The weekend family combo is perfect for our movie nights."</p>
-              <h4>Fatimah Hamzah</h4>
-              <span>Food Enthusiast</span>
+          <button 
+            className="border border-white text-white hover:bg-white/10 transition-all duration-300 px-6 py-3 text-lg rounded-md"
+          >
+            Make Reservation
+          </button>
+        </div>
+      </div>
+      
+      {/* Scroll Indicator */}
+      <div 
+        className="absolute bottom-8 left-0 right-0 flex justify-center"
+        data-aos="fade-up"
+        data-aos-delay="1200"
+        data-aos-offset="0"
+      >
+        <div className="flex flex-col items-center cursor-pointer hover:opacity-80 transition-opacity">
+          <span className="text-white/60 text-sm mb-2">Scroll</span>
+          <div className="animate-bounce">
+            <ChevronDown className="h-6 w-6 text-white/60" />
+          </div>
+        </div>
+      </div>
+
+      {/* Featured showcase */}
+      <div 
+        className="absolute bottom-0 left-0 w-full"
+        data-aos="fade-up" 
+        data-aos-anchor-placement="top-bottom"
+      >
+        <div className="container mx-auto px-4">
+          <div className="flex flex-wrap justify-center items-center mb-6 py-4 bg-black/40 backdrop-blur-sm rounded-t-lg">
+            <div className="px-6 py-2 flex-1 text-center border-r border-white/10">
+              <p className="text-white/70 text-xs uppercase tracking-wider">Featured Dish</p>
+              <h3 className="text-white text-sm md:text-base">Truffle Risotto</h3>
+            </div>
+            <div className="px-6 py-2 flex-1 text-center border-r border-white/10">
+              <p className="text-white/70 text-xs uppercase tracking-wider">Chef Special</p>
+              <h3 className="text-white text-sm md:text-base">Sea Bass en Papillote</h3>
+            </div>
+            <div className="px-6 py-2 flex-1 text-center">
+              <p className="text-white/70 text-xs uppercase tracking-wider">Opening Hours</p>
+              <h3 className="text-white text-sm md:text-base">12pm - 10pm Daily</h3>
             </div>
           </div>
         </div>
-      </section>
-
-      {/* Contact Section */}
-      <section className="contact-section" id="contact">
-        <div className="section-heading">
-          <h2>Get In Touch</h2>
-          <p>We'd love to hear from you</p>
-        </div>
-        
-        <div className="contact-container">
-          <img src="/contact.jpg" alt="Contact Us" className="contact-image" />
-        </div>
-      </section>
-
-      {/* Newsletter Section */}
-      <section className="newsletter">
-        <div className="newsletter-container">
-          <div className="newsletter-content">
-            <img src="/images/newsletter.jpg" alt="Newsletter" className="newsletter-image" />
-            <h2>Subscribe to Our Newsletter</h2>
-            <p>Get updates on special offers, new menu items, and exclusive deals.</p>
-            <form className="newsletter-form-inline">
-              <input type="email" placeholder="Your Email Address" required />
-              <button type="submit" className="btn-primary">Subscribe</button>
-            </form>
-          </div>
-        </div>
-      </section>
-      
-    </div>
+      </div>
+    </section>
   );
 };
 
-export default LandingPage;
+export default Hero;

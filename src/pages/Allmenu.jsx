@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 
-
 const MenuPage = () => {
   const [activeCategory, setActiveCategory] = useState('All');
   
@@ -154,20 +153,24 @@ const MenuPage = () => {
   
   const renderDietaryIcons = (dietary) => {
     return dietary.map((diet, index) => {
-      let className = `diet-icon ${diet}`;
+      let dietClass = '';
       let label = '';
       
       switch(diet) {
         case 'vegetarian':
+          dietClass = 'bg-green-500';
           label = 'V';
           break;
         case 'vegan':
+          dietClass = 'bg-green-600';
           label = 'VG';
           break;
         case 'gluten-free':
+          dietClass = 'bg-blue-500';
           label = 'GF';
           break;
         case 'spicy':
+          dietClass = 'bg-red-500';
           label = 'S';
           break;
         default:
@@ -175,7 +178,11 @@ const MenuPage = () => {
       }
       
       return (
-        <span key={index} className={className} title={diet.charAt(0).toUpperCase() + diet.slice(1)}>
+        <span 
+          key={index} 
+          className={`${dietClass} text-white text-xs font-bold rounded-full h-6 w-6 flex items-center justify-center mr-2`} 
+          title={diet.charAt(0).toUpperCase() + diet.slice(1)}
+        >
           {label}
         </span>
       );
@@ -192,18 +199,22 @@ const MenuPage = () => {
   });
   
   return (
-    <div className="menu-page">
-      <section className="menu-hero">
-        <h1>Our Delicious Menu</h1>
-        <p>Experience a culinary journey with our carefully crafted dishes made from the finest ingredients</p>
+    <div className="bg-gray-100 min-h-screen">
+      <section className="bg-yellow-500 text-gray-700 py-16 px-4 text-center">
+        <h1 className="text-4xl font-bold mb-4">Our Delicious Menu</h1>
+        <p className="text-xl max-w-2xl mx-auto">Experience a culinary journey with our carefully crafted dishes made from the finest ingredients</p>
       </section>
 
-      <div className="menu-container">
-        <div className="menu-navigation">
+      <div className="max-w-7xl mx-auto px-4 py-12">
+        <div className="flex flex-wrap justify-center gap-2 mb-12">
           {categories.map((category, index) => (
             <button 
               key={index} 
-              className={`menu-nav-button ${activeCategory === category ? 'active' : ''}`}
+              className={`px-4 py-2 rounded-full font-medium transition-colors duration-200 ${
+                activeCategory === category 
+                  ? 'bg-yellow-500 text-gray-700' 
+                  : 'bg-gray-200 text-gray-700 hover:bg-yellow-300'
+              }`}
               onClick={() => filterByCategory(category)}
             >
               {category}
@@ -214,38 +225,42 @@ const MenuPage = () => {
         {activeCategory === 'All' ? (
           // Display all categories with their own sections
           Object.keys(groupedItems).map((category, index) => (
-            <div className="menu-section" key={index}>
-              <h2 className="menu-section-title">{category}</h2>
-              <div className="menu-grid">
+            <div className="mb-16" key={index}>
+              <h2 className="text-3xl font-bold text-gray-700 mb-8 border-b-2 border-yellow-500 pb-2">{category}</h2>
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                 {groupedItems[category].map(item => (
-                  <div className="menu-item" key={item.id}>
-                    <div className="menu-item-image">
-                      <img src={item.image} alt={item.name} />
+                  <div className="bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300" key={item.id}>
+                    <div className="relative h-48">
+                      <img src={item.image} alt={item.name} className="w-full h-full object-cover" />
                       {(item.popular || item.special) && (
-                        <div className="special-badge">
+                        <div className="absolute top-4 right-4 bg-yellow-500 text-gray-700 px-3 py-1 rounded-full font-bold text-sm">
                           {item.special || 'Popular'}
                         </div>
                       )}
                     </div>
-                    <div className="menu-item-content">
-                      <div className="menu-item-header">
-                        <h3 className="menu-item-title">{item.name}</h3>
-                        <span className="menu-item-price">${item.price.toFixed(2)}</span>
+                    <div className="p-6">
+                      <div className="flex justify-between items-start mb-2">
+                        <h3 className="text-xl font-bold text-gray-700">{item.name}</h3>
+                        <span className="text-xl font-bold text-yellow-500">${item.price.toFixed(2)}</span>
                       </div>
-                      <p className="menu-item-description">{item.description}</p>
-                      <div className="menu-item-tags">
+                      <p className="text-gray-600 mb-4">{item.description}</p>
+                      <div className="flex flex-wrap gap-2 mb-4">
                         {item.tags.map((tag, idx) => (
-                          <span key={idx} className="menu-item-tag">{tag}</span>
+                          <span key={idx} className="bg-gray-200 text-gray-700 px-3 py-1 rounded-full text-xs">{tag}</span>
                         ))}
                       </div>
                       {item.dietary && item.dietary.length > 0 && (
-                        <div className="special-diet">
+                        <div className="flex mb-4">
                           {renderDietaryIcons(item.dietary)}
                         </div>
                       )}
-                      <div className="menu-item-actions">
-                        <button className="add-to-cart">Add to Cart</button>
-                        <button className="favorite-btn">❤</button>
+                      <div className="flex justify-between items-center">
+                        <button className="bg-yellow-500 hover:bg-yellow-600 text-gray-700 font-bold py-2 px-4 rounded transition-colors duration-200">
+                          Add to Cart
+                        </button>
+                        <button className="text-gray-400 hover:text-red-500 transition-colors duration-200 text-2xl">
+                          ❤
+                        </button>
                       </div>
                     </div>
                   </div>
@@ -255,38 +270,42 @@ const MenuPage = () => {
           ))
         ) : (
           // Display only the selected category
-          <div className="menu-section">
-            <h2 className="menu-section-title">{activeCategory}</h2>
-            <div className="menu-grid">
+          <div className="mb-16">
+            <h2 className="text-3xl font-bold text-gray-700 mb-8 border-b-2 border-yellow-500 pb-2">{activeCategory}</h2>
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
               {filteredItems.map(item => (
-                <div className="menu-item" key={item.id}>
-                  <div className="menu-item-image">
-                    <img src={item.image} alt={item.name} />
+                <div className="bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300" key={item.id}>
+                  <div className="relative h-48">
+                    <img src={item.image} alt={item.name} className="w-full h-full object-cover" />
                     {(item.popular || item.special) && (
-                      <div className="special-badge">
+                      <div className="absolute top-4 right-4 bg-yellow-500 text-gray-700 px-3 py-1 rounded-full font-bold text-sm">
                         {item.special || 'Popular'}
                       </div>
                     )}
                   </div>
-                  <div className="menu-item-content">
-                    <div className="menu-item-header">
-                      <h3 className="menu-item-title">{item.name}</h3>
-                      <span className="menu-item-price">${item.price.toFixed(2)}</span>
+                  <div className="p-6">
+                    <div className="flex justify-between items-start mb-2">
+                      <h3 className="text-xl font-bold text-gray-700">{item.name}</h3>
+                      <span className="text-xl font-bold text-yellow-500">${item.price.toFixed(2)}</span>
                     </div>
-                    <p className="menu-item-description">{item.description}</p>
-                    <div className="menu-item-tags">
+                    <p className="text-gray-600 mb-4">{item.description}</p>
+                    <div className="flex flex-wrap gap-2 mb-4">
                       {item.tags.map((tag, idx) => (
-                        <span key={idx} className="menu-item-tag">{tag}</span>
+                        <span key={idx} className="bg-gray-200 text-gray-700 px-3 py-1 rounded-full text-xs">{tag}</span>
                       ))}
                     </div>
                     {item.dietary && item.dietary.length > 0 && (
-                      <div className="special-diet">
+                      <div className="flex mb-4">
                         {renderDietaryIcons(item.dietary)}
                       </div>
                     )}
-                    <div className="menu-item-actions">
-                      <button className="add-to-cart">Add to Cart</button>
-                      <button className="favorite-btn">❤</button>
+                    <div className="flex justify-between items-center">
+                      <button className="bg-yellow-500 hover:bg-yellow-600 text-gray-700 font-bold py-2 px-4 rounded transition-colors duration-200">
+                        Add to Cart
+                      </button>
+                      <button className="text-gray-400 hover:text-red-500 transition-colors duration-200 text-2xl">
+                        ❤
+                      </button>
                     </div>
                   </div>
                 </div>
@@ -295,7 +314,6 @@ const MenuPage = () => {
           </div>
         )}
       </div>
-
     </div>
   );
 };
