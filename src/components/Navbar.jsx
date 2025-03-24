@@ -55,9 +55,7 @@ const Navbar = () => {
               size={22} 
               className={scrolled ? "text-gray-800" : "text-white"} 
             />
-            <span className="absolute -top-1 -right-1 bg-yellow-500 text-white text-xs font-bold rounded-full w-5 h-5 flex items-center justify-center">
-              3
-            </span>
+            
           </Link>
         </div>
         

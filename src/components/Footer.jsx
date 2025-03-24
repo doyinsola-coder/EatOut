@@ -43,7 +43,7 @@ const Footer = () => {
   
   return (
     <motion.footer
-      className="bg-gray-900 text-white py-12"
+      className="bg-black text-white py-12"
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       transition={{ duration: 0.8 }}
